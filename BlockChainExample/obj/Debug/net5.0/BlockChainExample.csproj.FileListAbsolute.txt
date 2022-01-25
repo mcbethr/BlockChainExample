@@ -14,3 +14,6 @@ C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.d
 C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\ref\BlockChainExample.dll
 C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.pdb
 C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.genruntimeconfig.cache
+C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\BlockchainLibrary.dll
+C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\BlockchainLibrary.pdb
+C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.csproj.CopyComplete

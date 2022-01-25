@@ -15,7 +15,7 @@ namespace BlockchainLibrary
         public byte[] PreviousHash { get { return _PreviousHash; } }
         public string PreviousHashR { get { return BitConverter.ToString(PreviousHash); } }
 
-        public string Data { get; }
+        public string Data { get { return _Data; } }
 
         //Create Genesis Block
         public Block(string Data) 

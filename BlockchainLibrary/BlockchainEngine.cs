@@ -8,17 +8,20 @@ namespace BlockchainLibrary
 {
     public class BlockchainEngine
     {
-        LinkedList<Block> BlockChain;
+        LinkedList<Block> _BlockChain;
+
+        public LinkedList<Block> Blockchain { get {return _BlockChain;} } 
 
         public BlockchainEngine()
         {
-            BlockChain = new LinkedList<Block>();
-            BlockChain.AddLast(BlockchainOperations.CreateGenesisBlock());
+            _BlockChain = new LinkedList<Block>();
+            _BlockChain.AddLast(BlockchainOperations.CreateGenesisBlock());
         }
 
         public void AddBlock(string DataToAdd)
         {
-            Block NewBlock = new Block(BlockChain.Last(), DataToAdd);
+            Block NewBlock = new Block(_BlockChain.Last(), DataToAdd);
+            _BlockChain.AddLast(NewBlock);
         }
 
     }

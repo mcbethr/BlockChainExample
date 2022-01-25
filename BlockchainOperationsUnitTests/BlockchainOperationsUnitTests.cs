@@ -20,17 +20,17 @@ namespace BlockchainOperationsUnitTests
         public void CreateSecondBlockTest()
         {
             Block GenesisBlock = new Block("This is a test");
-            Block NewBlock = new Block(GenesisBlock.Hash, "Second Test");
-            Assert.AreEqual("78-C1-CD-6C-34-AB-1D-D5-34-56-DA-2D-5C-D7-98-E5", NewBlock.ReadableHash);
+            Block NewBlock = new Block(GenesisBlock, "Second Test");
+            Assert.AreEqual("78-C1-CD-6C-34-AB-1D-D5-34-56-DA-2D-5C-D7-98-E5", NewBlock.HashR);
         }
 
         [TestMethod]
         public void VerifyBlockTest()
         {
             Block GenesisBlock = new Block("GenesisBlock");
-            Block NewBlock = new Block(GenesisBlock.Hash, "Second Test");
+            Block NewBlock = new Block(GenesisBlock, "Second Test");
 
-            BlockchainOperations.VerifyBlock(NewBlock);
+            BlockchainOperations.VerifyBlock(NewBlock,GenesisBlock);
 
         }
     }

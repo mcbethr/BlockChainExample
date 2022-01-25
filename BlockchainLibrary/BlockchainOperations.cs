@@ -36,9 +36,11 @@ namespace BlockchainLibrary
             return GenesisHash;
         }
 
-        public static bool VerifyBlock(Block BlockToVerify)
+        public static bool VerifyBlock(Block BlockToVerify, Block PreviousBlock)
         {
-            Block CheckBlock = new Block(BlockToVerify.PreviousHash, BlockToVerify.Data);
+
+
+            Block CheckBlock = new Block(PreviousBlock, BlockToVerify.Data);
             if (CheckBlock.Hash == BlockToVerify.Hash)
                 return true;
             else

@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "BlockChainExample/1.0.0": {
+        "dependencies": {
+          "BlockchainLibrary": "1.0.0"
+        },
         "runtime": {
           "BlockChainExample.dll": {}
+        }
+      },
+      "BlockchainLibrary/1.0.0": {
+        "runtime": {
+          "BlockchainLibrary.dll": {}
         }
       }
     }
   },
   "libraries": {
     "BlockChainExample/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BlockchainLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
