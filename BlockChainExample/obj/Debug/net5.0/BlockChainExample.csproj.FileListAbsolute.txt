@@ -1,0 +1,16 @@
+C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\BlockChainExample.exe
+C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\BlockChainExample.deps.json
+C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\BlockChainExample.runtimeconfig.json
+C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\BlockChainExample.runtimeconfig.dev.json
+C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\BlockChainExample.dll
+C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\ref\BlockChainExample.dll
+C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\BlockChainExample.pdb
+C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.csproj.AssemblyReference.cache
+C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.AssemblyInfoInputs.cache
+C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.AssemblyInfo.cs
+C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.csproj.CoreCompileInputs.cache
+C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.dll
+C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\ref\BlockChainExample.dll
+C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.pdb
+C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.genruntimeconfig.cache

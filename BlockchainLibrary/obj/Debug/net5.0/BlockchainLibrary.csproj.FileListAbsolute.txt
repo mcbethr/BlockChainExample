@@ -1,0 +1,12 @@
+C:\Code\BlockChainExample\BlockchainLibrary\bin\Debug\net5.0\BlockchainLibrary.deps.json
+C:\Code\BlockChainExample\BlockchainLibrary\bin\Debug\net5.0\BlockchainLibrary.dll
+C:\Code\BlockChainExample\BlockchainLibrary\bin\Debug\net5.0\ref\BlockchainLibrary.dll
+C:\Code\BlockChainExample\BlockchainLibrary\bin\Debug\net5.0\BlockchainLibrary.pdb
+C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net5.0\BlockchainLibrary.csproj.AssemblyReference.cache
+C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net5.0\BlockchainLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net5.0\BlockchainLibrary.AssemblyInfoInputs.cache
+C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net5.0\BlockchainLibrary.AssemblyInfo.cs
+C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net5.0\BlockchainLibrary.csproj.CoreCompileInputs.cache
+C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net5.0\BlockchainLibrary.dll
+C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net5.0\ref\BlockchainLibrary.dll
+C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net5.0\BlockchainLibrary.pdb
