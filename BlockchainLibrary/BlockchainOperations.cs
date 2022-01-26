@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace BlockchainLibrary
+namespace BlockchainLibrary.ChainOperations
 {
-    public class BlockchainOperations
+    internal class BlockchainOperations
     {
         const string GenesisBlockText = "GenesisBlock";
 
@@ -36,9 +36,8 @@ namespace BlockchainLibrary
             return GenesisHash;
         }
 
-        public static bool VerifyBlock(Block BlockToVerify, Block PreviousBlock)
+        public static bool VerifyBlock(Block PreviousBlock, Block BlockToVerify)
         {
-
 
             Block CheckBlock = new Block(PreviousBlock, BlockToVerify.Data);
             if (CheckBlock.Hash == BlockToVerify.Hash)

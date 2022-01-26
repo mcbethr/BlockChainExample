@@ -1,4 +1,5 @@
 ﻿using BlockchainLibrary;
+using BlockchainLibrary.ChainOperations;
 using System;
 
 namespace BlockChainExample
@@ -7,6 +8,8 @@ namespace BlockChainExample
     {
         static void Main(string[] args)
         {
+
+            //Create a blockchain and add some transactions
             BlockchainEngine BE = new BlockchainEngine();
             BE.AddBlock("This is a test");
             BE.AddBlock("SecondTest");
@@ -23,6 +26,9 @@ namespace BlockChainExample
                 Console.WriteLine("");
                 itemNumber++;
             }
+
+            //let try to hack this
+            //BE.Blockchain.AddAfter()
         }
     }
 }

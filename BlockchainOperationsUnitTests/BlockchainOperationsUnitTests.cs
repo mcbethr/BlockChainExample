@@ -11,9 +11,8 @@ namespace BlockchainOperationsUnitTests
         public void CreateGenesisBlockTest()
         {
 
-            byte[] HashedBlock = BlockchainOperations.CreateGenesisBlock("This is a test");
-            string bitString = BitConverter.ToString(HashedBlock);
-            Assert.AreEqual("CE-11-4E-45-01-D2-F4-E2-DC-EA-3E-17-B5-46-F3-39", bitString);
+            Block GenesisBlock = new Block("This is a test");
+            Assert.AreEqual("CE-11-4E-45-01-D2-F4-E2-DC-EA-3E-17-B5-46-F3-39", GenesisBlock.Data);
         }
 
         [TestMethod]
@@ -24,14 +23,6 @@ namespace BlockchainOperationsUnitTests
             Assert.AreEqual("78-C1-CD-6C-34-AB-1D-D5-34-56-DA-2D-5C-D7-98-E5", NewBlock.HashR);
         }
 
-        [TestMethod]
-        public void VerifyBlockTest()
-        {
-            Block GenesisBlock = new Block("GenesisBlock");
-            Block NewBlock = new Block(GenesisBlock, "Second Test");
-
-            BlockchainOperations.VerifyBlock(NewBlock,GenesisBlock);
-
-        }
+  
     }
 }
