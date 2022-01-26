@@ -11,8 +11,8 @@ namespace BlockChainExample
 
             //Create a blockchain and add some transactions
             BlockchainEngine BE = new BlockchainEngine();
-            BE.AddBlock("This is a test");
             BE.AddBlock("SecondTest");
+            BE.AddBlock("ThirdTest");
 
             int itemNumber = 0;
             foreach(var item in BE.Blockchain)

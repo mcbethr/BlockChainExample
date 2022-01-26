@@ -39,16 +39,15 @@ namespace BlockchainLibrary.ChainOperations
             return null;
         }
 
-        //TODO : Acount for the first block
+        //TODO : Account for checking the last item in the linked list.
         public bool VerifyBlock(Block BlockToVerify)
         {
 
-            //Find the Block in the Blockchain
-            Block PreviousBlock = Blockchain.Find(BlockToVerify).Previous.Value;
+            //Find the next block in the chain
+            //This will fail if it's the last block
+            LinkedListNode<Block> NextBlockNode = _BlockChain.Find(BlockToVerify).Next;
 
-            //Re-generate the BlockToVerify with the hash from the previous block
-            //and the data from the current BlockToVerify
-            return BlockchainOperations.VerifyBlock(PreviousBlock, BlockToVerify);
+            return BlockchainOperations.VerifyBlock(BlockToVerify, NextBlockNode.Value);
 
 
             

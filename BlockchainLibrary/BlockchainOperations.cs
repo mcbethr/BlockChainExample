@@ -36,14 +36,18 @@ namespace BlockchainLibrary.ChainOperations
             return GenesisHash;
         }
 
-        public static bool VerifyBlock(Block PreviousBlock, Block BlockToVerify)
+        public static bool VerifyBlock(Block BlockToVerify, Block NextBlock)
         {
+            
+            byte[] BlockToVerifyHash = BlockToVerify.Hash;
 
-            Block CheckBlock = new Block(PreviousBlock, BlockToVerify.Data);
-            if (CheckBlock.Hash == BlockToVerify.Hash)
+            byte[] HashOfNextBlock = HashBlock(BlockToVerifyHash, NextBlock.Data);
+
+            if (BlockToVerifyHash == HashOfNextBlock)
                 return true;
             else
                 return false;
+
         }
 
     }
