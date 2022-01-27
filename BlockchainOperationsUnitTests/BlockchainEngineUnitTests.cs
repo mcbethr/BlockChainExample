@@ -24,8 +24,10 @@ namespace BlockchainOperationsUnitTests
         {
             BlockchainEngine BE = new BlockchainEngine();
             BE.AddBlock("SecondTest");
+            //Get the data for the second Block
+            Block SecondBlock = BE.Blockchain.Last.Value;
             BE.AddBlock("ThirdTest");
-            Block FoundBlock = BE.FindBlockFromHash("5B-61-43-0E-0D-34-52-31-D8-2F-C1-56-F0-8F-00-85");
+            Block FoundBlock = BE.FindBlock(SecondBlock.Hash);
             Assert.AreEqual("SecondTest", FoundBlock.Data);
         }
 
@@ -34,27 +36,24 @@ namespace BlockchainOperationsUnitTests
         {
             BlockchainEngine BE = new BlockchainEngine();
             BE.AddBlock("SecondTest");
+            //Get the data for the second Block
+            Block SecondBlock = BE.Blockchain.Last.Value;
             BE.AddBlock("ThirdTest");
 
-            //Get the block I want to tamper with
-            Block FoundBlock = BE.FindBlockFromHash("5B-61-43-0E-0D-34-52-31-D8-2F-C1-56-F0-8F-00-85");
+            //Get the second block to tamper with it
+            Block FoundBlock = BE.FindBlock(SecondBlock.Hash);
             LinkedListNode<Block> FoundBlockNode = new LinkedListNode<Block>(FoundBlock);
 
-            //Get the previous block hash
-            Block PreviousBlock = BE.FindBlockFromHash(FoundBlock.PreviousHashR);
-
-            //LinkedListNode<Block> FoundBlockNode = new LinkedListNode<Block>(FoundBlock);
-
             //Construct a tampered block
-            Block TamperedBlock = new Block(PreviousBlock, "Tampered Block");
+            Block TamperedBlock = new Block(FoundBlock, "Tampered Block");
             BE.Blockchain.AddBefore(BE.Blockchain.Find(FoundBlock), TamperedBlock);
 
             //Delete the true block
             BE.Blockchain.Remove(BE.Blockchain.FindLast(FoundBlock));
 
             //Verify the tampered block
-            bool Tampered = BE.VerifyBlock(TamperedBlock);
-            Assert.IsFalse(Tampered);
+            bool BlockIsAuthentic = BE.VerifyBlock(TamperedBlock);
+            Assert.IsFalse(BlockIsAuthentic);
 
         }
 
@@ -63,7 +62,20 @@ namespace BlockchainOperationsUnitTests
         {
             BlockchainEngine BE = new BlockchainEngine();
             BE.AddBlock("SecondTest");
+            //Get the data for the second Block
+            Block SecondBlock = BE.Blockchain.Last.Value;
             BE.AddBlock("ThirdTest");
+
+            //Get the second block
+            Block FoundBlock = BE.FindBlock(SecondBlock.Hash);
+
+            //Verify the second block
+            bool BlockIsAuthentic = BE.VerifyBlock(FoundBlock);
+            Assert.IsTrue(BlockIsAuthentic);
+
+
         }
+
+
     }
 }

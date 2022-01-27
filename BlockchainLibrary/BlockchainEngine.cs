@@ -24,7 +24,12 @@ namespace BlockchainLibrary.ChainOperations
             _BlockChain.AddLast(NewBlock);
         }
 
-        public Block FindBlockFromHash(string HashR)
+        /// <summary>
+        /// Find block by string hash
+        /// </summary>
+        /// <param name="HashR"></param>
+        /// <returns></returns>
+        public Block FindBlock(string HashR)
         {
             //Search Through The Entire Block
             //If we don't find anything, return Null. 
@@ -32,6 +37,27 @@ namespace BlockchainLibrary.ChainOperations
             {
                 if (HashR.Equals(item.HashR))
                 {
+                    return item;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Find block by binary hash
+        /// </summary>
+        /// <param name="HashR"></param>
+        /// <returns></returns>
+        public Block FindBlock(byte[] Hash)
+        {
+            //Search Through The Entire Block
+            //If we don't find anything, return Null. 
+            foreach (var item in Blockchain)
+            {
+
+                if(item.Hash.SequenceEqual(Hash))
+                { 
                     return item;
                 }
             }
@@ -47,10 +73,7 @@ namespace BlockchainLibrary.ChainOperations
             //This will fail if it's the last block
             LinkedListNode<Block> NextBlockNode = _BlockChain.Find(BlockToVerify).Next;
 
-            return BlockchainOperations.VerifyBlock(BlockToVerify, NextBlockNode.Value);
-
-
-            
+            return BlockchainOperations.VerifyBlock(BlockToVerify, NextBlockNode.Value);            
         }
 
     }
