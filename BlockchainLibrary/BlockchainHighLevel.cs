@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace BlockchainLibrary.ChainOperations
 {
-    public class BlockchainEngine
+    public class BlockchainHighLevel
     {
         LinkedList<Block> _BlockChain;
 
         public LinkedList<Block> Blockchain { get {return _BlockChain;} } 
 
-        public BlockchainEngine()
+        public BlockchainHighLevel()
         {
             _BlockChain = new LinkedList<Block>();
-            _BlockChain.AddLast(BlockchainOperations.CreateGenesisBlock());
+            _BlockChain.AddLast(BlockchainLowLevel.CreateGenesisBlock());
         }
 
         public void AddBlock(string DataToAdd)
@@ -73,7 +73,43 @@ namespace BlockchainLibrary.ChainOperations
             //This will fail if it's the last block
             LinkedListNode<Block> NextBlockNode = _BlockChain.Find(BlockToVerify).Next;
 
-            return BlockchainOperations.VerifyBlock(BlockToVerify, NextBlockNode.Value);            
+            return BlockchainLowLevel.VerifyBlock(BlockToVerify, NextBlockNode.Value);            
+        }
+
+        /// <summary>
+        /// Verifies all blocks from a start point.
+        /// Returns null if ok, and the first tampered 
+        /// block if tampering is detected
+        /// We should use a Tuple, a struct or a class, 
+        /// but going for simplicity here.
+        /// </summary>
+        /// <returns></returns>
+        public Block VerifyBlocks(Block StartBlock)
+        {
+            Block TamperedBlock = null;
+
+            LinkedListNode<Block> StartNode = new LinkedListNode<Block>(StartBlock);
+
+            LinkedListNode<Block> NodeToCheck = _BlockChain.Find(StartNode.Value);
+
+            //if nothing exists, we're at the end of the block.
+            if (NodeToCheck.Next == null)
+            {
+                return null;
+            }
+
+            ///If the node is verified, then move to the next node
+            ///else, return the bad block. Yes we're using recursion
+            if (VerifyBlock(NodeToCheck.Value) == true)
+            {
+                VerifyBlocks(NodeToCheck.Next.Value);
+            }
+            else
+            {
+                return NodeToCheck.Next.Value;
+            }
+
+            return TamperedBlock;
         }
 
     }

@@ -22,7 +22,7 @@ namespace BlockchainLibrary
         public Block(string Data) 
         {
             _Data = Data;
-            _Hash = BlockchainOperations.CreateGenesisBlock(Data);
+            _Hash = BlockchainLowLevel.CreateGenesisBlock(Data);
             _PreviousHash = Hash;
         }
 
@@ -36,7 +36,7 @@ namespace BlockchainLibrary
         public void GenerateNewBlock(byte[] PreviousBlockHash, string Data)
         {
             _PreviousHash = PreviousBlockHash;
-            _Hash = BlockchainOperations.HashBlock(PreviousBlockHash, Data);
+            _Hash = BlockchainLowLevel.HashBlock(PreviousBlockHash, Data);
             _Data = Data;
         }
 

@@ -10,7 +10,7 @@ namespace BlockChainExample
         {
 
             //Create a blockchain and add some transactions
-            BlockchainEngine BE = new BlockchainEngine();
+            BlockchainHighLevel BE = new BlockchainHighLevel();
             BE.AddBlock("SecondTest");
             BE.AddBlock("ThirdTest");
 

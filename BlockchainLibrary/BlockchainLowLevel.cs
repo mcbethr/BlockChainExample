@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace BlockchainLibrary.ChainOperations
 {
-    internal class BlockchainOperations
+    internal class BlockchainLowLevel
     {
         const string GenesisBlockText = "GenesisBlock";
 

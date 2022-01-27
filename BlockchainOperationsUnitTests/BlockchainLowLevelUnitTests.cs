@@ -3,10 +3,10 @@ using BlockchainLibrary.ChainOperations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace BlockchainOperationsUnitTests
+namespace BlockchainLowLevelUnitTests
 {
     [TestClass]
-    public class BlockchainOperationsTests
+    public class BlockchainLowLevelTests
     {
         [TestMethod]
         public void CreateGenesisBlockTest()
