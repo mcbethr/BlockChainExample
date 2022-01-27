@@ -58,5 +58,12 @@ namespace BlockchainOperationsUnitTests
 
         }
 
+        [TestMethod]
+        public void VerifyNoTamperOnSecondBlockTest()
+        {
+            BlockchainEngine BE = new BlockchainEngine();
+            BE.AddBlock("SecondTest");
+            BE.AddBlock("ThirdTest");
+        }
     }
 }

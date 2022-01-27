@@ -6130,19 +6130,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {}
+    "C:\\Users\\ryanm\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj",
+      "projectUniqueName": "C:\\code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj",
       "projectName": "BlockchainOperationsUnitTests",
-      "projectPath": "C:\\Code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\BlockChainExample\\BlockchainOperationsUnitTests\\obj\\",
+      "projectPath": "C:\\code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj",
+      "packagesPath": "C:\\Users\\ryanm\\.nuget\\packages\\",
+      "outputPath": "C:\\code\\BlockChainExample\\BlockchainOperationsUnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ryanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6156,8 +6156,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
-              "projectPath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj"
+            "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
+              "projectPath": "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj"
             }
           }
         }
@@ -6204,7 +6204,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
