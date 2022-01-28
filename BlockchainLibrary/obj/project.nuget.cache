@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f6w+gJUp2gAB9bnMXr/pIG7oMohez+yOrGY35GlYOC5hV3Y96B0NbUxJDbpCp7WVMnXBax4ISaAZtRFNBbbD9g==",
+  "dgSpecHash": "wJTcMhr+Bny143dLs6i6S2ixa6EbrhrhpAk3God3+20cKJUVVCGka4UM+IN9ylUDfK3CfAb8X4dUYATHwD0ELg==",
   "success": true,
-  "projectFilePath": "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
+  "projectFilePath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
