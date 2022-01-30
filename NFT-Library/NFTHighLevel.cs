@@ -5,10 +5,10 @@ using System.Text;
 
 namespace NFT_Library
 {
-    public class NFTHighLevel
+    public static class NFTHighLevel
     {
 
-        static Block CreateNFT(string[] args)
+        public static string CreateNFT(string[] args)
         {
             //Find the file
             string Filename = args[3];
@@ -19,9 +19,7 @@ namespace NFT_Library
             //Create the NFT
             NFT MyNFT = new NFT(args[0], args[1], args[2], byteArray);
 
-            //Pleace the NFT in a block
-            Block NFTblock = new Block(MyNFT.TransactionString);
-            return NFTblock;
+            return MyNFT.TransactionString;
         }
 
     }

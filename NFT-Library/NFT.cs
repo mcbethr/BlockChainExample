@@ -11,8 +11,6 @@ namespace NFT_Library
 
         private string _TransactionString;
 
-        public byte[] NFTImage { get; }
-
         public string TransactionString { get { return _TransactionString; } }
 
         public NFT(string From, string Action, string To, byte[] NFTImage)
@@ -31,7 +29,7 @@ namespace NFT_Library
                                 To +
                                 Environment.NewLine
                                 +
-                                Convert.ToByte(NFTImage);
+                                BitConverter.ToString(NFTImage);
 
         }
         
