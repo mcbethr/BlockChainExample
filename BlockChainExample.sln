@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainLibrary", "Blockc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainOperationsUnitTests", "BlockchainOperationsUnitTests\BlockchainOperationsUnitTests.csproj", "{B98EA7A9-E606-410E-A66D-A37E97FF222F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NFT-Library", "NFT-Library\NFT-Library.csproj", "{0111D951-C38F-4E19-B9AA-97FBC3DFF2A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B98EA7A9-E606-410E-A66D-A37E97FF222F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B98EA7A9-E606-410E-A66D-A37E97FF222F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B98EA7A9-E606-410E-A66D-A37E97FF222F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0111D951-C38F-4E19-B9AA-97FBC3DFF2A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0111D951-C38F-4E19-B9AA-97FBC3DFF2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0111D951-C38F-4E19-B9AA-97FBC3DFF2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0111D951-C38F-4E19-B9AA-97FBC3DFF2A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

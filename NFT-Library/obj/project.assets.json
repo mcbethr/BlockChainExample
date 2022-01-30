@@ -11,19 +11,6 @@
         "runtime": {
           "bin/placeholder/BlockchainLibrary.dll": {}
         }
-      },
-      "NFT-Library/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "BlockchainLibrary": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/NFT-Library.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/NFT-Library.dll": {}
-        }
       }
     }
   },
@@ -32,17 +19,11 @@
       "type": "project",
       "path": "../BlockchainLibrary/BlockchainLibrary.csproj",
       "msbuildProject": "../BlockchainLibrary/BlockchainLibrary.csproj"
-    },
-    "NFT-Library/1.0.0": {
-      "type": "project",
-      "path": "../NFT-Library/NFT-Library.csproj",
-      "msbuildProject": "../NFT-Library/NFT-Library.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "BlockchainLibrary >= 1.0.0",
-      "NFT-Library >= 1.0.0"
+      "BlockchainLibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -51,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\BlockChainExample\\BlockChainExample\\BlockChainExample.csproj",
-      "projectName": "BlockChainExample",
-      "projectPath": "C:\\Code\\BlockChainExample\\BlockChainExample\\BlockChainExample.csproj",
+      "projectUniqueName": "C:\\Code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj",
+      "projectName": "NFT-Library",
+      "projectPath": "C:\\Code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\BlockChainExample\\BlockChainExample\\obj\\",
+      "outputPath": "C:\\Code\\BlockChainExample\\NFT-Library\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -74,9 +55,6 @@
           "projectReferences": {
             "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
               "projectPath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj"
-            },
-            "C:\\Code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj": {
-              "projectPath": "C:\\Code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj"
             }
           }
         }

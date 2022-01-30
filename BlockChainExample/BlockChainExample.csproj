@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlockchainLibrary\BlockchainLibrary.csproj" />
+    <ProjectReference Include="..\NFT-Library\NFT-Library.csproj" />
   </ItemGroup>
 
 </Project>
