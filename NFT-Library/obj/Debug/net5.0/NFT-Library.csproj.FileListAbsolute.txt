@@ -18,4 +18,3 @@ C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.csproj.CoreCo
 C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.dll
 C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\ref\NFT-Library.dll
 C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.pdb
-C:\code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.csproj.CopyComplete

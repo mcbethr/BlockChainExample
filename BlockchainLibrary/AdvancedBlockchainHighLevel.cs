@@ -43,7 +43,7 @@ namespace BlockchainLibrary.ChainOperations
                 Block PreviousBlock = _BlockChain.Last.Value;
 
                 _BlockChain.AddLast(FindHash(PreHashedTransactions,PreviousBlock));
-
+                _Transactions = new List<string>(); //Reset the transaction
                 }
 
                 
@@ -143,16 +143,49 @@ namespace BlockchainLibrary.ChainOperations
             return null;
         }
 
-        //TODO : Account for checking the last item in the linked list.
-        public bool VerifyBlock(Block BlockToVerify)
+     
+        /// <summary>
+        /// This is different than the basic blockchain code
+        /// Here we are verifying that the Previous block hash
+        /// the nonce and the data all match what is expected
+        /// </summary>
+        /// <param name="BlockToVerify"></param>
+        /// <returns></returns>
+        
+        
+        public bool VerifyBlock(Block BlockToVerify, Block PreviousBlock)
         {
 
-            //Find the next block in the chain
-            //This will fail if it's the last block
-            LinkedListNode<Block> NextBlockNode = _BlockChain.Find(BlockToVerify).Next;
+                //Do a special accounting for the Genesis Block
+                if (PreviousBlock == null)
+                {
+                    Block GenesisBlock = new Block("GenesisBlock");
+                    if (GenesisBlock.Hash.SequenceEqual(BlockToVerify.Hash) == true)
+                    {
+                    return true;
+                    }
+                }
+                
 
-            return BlockchainLowLevel.VerifyBlock(BlockToVerify, NextBlockNode.Value);            
+                byte[] PreviousHash = PreviousBlock.Hash;
+                byte[] CurrentHash = BlockToVerify.Hash;
+                string Transactions = BlockToVerify.Data;
+                int Nonce = BlockToVerify.Nonce;
+
+                byte[] CalculatedHash = BlockchainLowLevel.HashBlock(PreviousHash, Transactions, Nonce);
+                if (CalculatedHash.SequenceEqual(CurrentHash) == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            
+                      
         }
+       
 
         /// <summary>
         /// Verifies all blocks from a start point.
@@ -162,33 +195,49 @@ namespace BlockchainLibrary.ChainOperations
         /// but going for simplicity here.
         /// </summary>
         /// <returns></returns>
+        
         public Block VerifyBlocks(Block StartBlock)
         {
-            Block TamperedBlock = null;
 
-            LinkedListNode<Block> StartNode = new LinkedListNode<Block>(StartBlock);
+            Block PreviousBlock = null;
 
-            LinkedListNode<Block> NodeToCheck = _BlockChain.Find(StartNode.Value);
+            LinkedListNode<Block> StartNode = _BlockChain.Find(StartBlock);
 
             //if nothing exists, we're at the end of the block.
-            if (NodeToCheck.Next == null)
+            if (StartNode.Next == null)
             {
                 return null;
             }
 
-            ///If the node is verified, then move to the next node
-            ///else, return the bad block. Yes we're using recursion
-            if (VerifyBlock(NodeToCheck.Value) == true)
+            ///If the Previous Value of the start node is
+            ///null, then we are at the beginning of 
+            ///the blockchain and should make the "previous"
+            ///block the Genesis block
+            if (StartNode.Previous == null)
             {
-                VerifyBlocks(NodeToCheck.Next.Value);
+                PreviousBlock = null;
             }
             else
             {
-                return NodeToCheck.Next.Value;
+                PreviousBlock = StartNode.Previous.Value;
             }
 
-            return TamperedBlock;
+            ///If the node is verified, then move to the next node
+            ///else, return the bad block. Yes we're using recursion
+            if (VerifyBlock(StartNode.Value, PreviousBlock) == true)
+            {
+                VerifyBlocks(StartNode.Next.Value);
+            }
+            else
+            {
+                return StartNode.Next.Value;
+            }
+
+            //If we reached here, The entire blockchain is validated.
+            return null;
+
         }
+        
 
     }
 }

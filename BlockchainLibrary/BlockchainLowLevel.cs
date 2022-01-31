@@ -48,7 +48,15 @@ namespace BlockchainLibrary.ChainOperations
         {
             
             byte[] BlockToVerifyHash = BlockToVerify.Hash;
-            
+
+            ///Return true if it's the last block.  
+            ///We have no way of verifying the last block in 
+            ///the simple demo without proof of work
+            if (NextBlock == null)
+            {
+                return true;
+            }
+
             byte[] CalculatedHashOfNextBlock = HashBlock(BlockToVerifyHash, NextBlock.Data);
 
             if (CalculatedHashOfNextBlock.SequenceEqual(NextBlock.Hash))
