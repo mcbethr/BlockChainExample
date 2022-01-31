@@ -11,7 +11,7 @@ namespace BlockchainLibrary.ChainOperations
         LinkedList<Block> _BlockChain;
         List<string> _Transactions;
         string _MinerName;
-        int _Difficulty;
+        static int _Difficulty;
         const int tranactionLimit = 5; //<-- Change this to increase transaction limit
         const int reward = 6; ///<-- Change this to increase reward
 
@@ -19,7 +19,7 @@ namespace BlockchainLibrary.ChainOperations
 
         public LinkedList<Block> Blockchain { get {return _BlockChain;} } 
 
-        public AdvancedBlockchainHighLevel(string MinerName, int Difficulty)
+        public AdvancedBlockchainHighLevel(string MinerName, int Difficulty = 1)
         {
             _BlockChain = new LinkedList<Block>();
             _Transactions = new List<string>();
@@ -35,7 +35,7 @@ namespace BlockchainLibrary.ChainOperations
                 {
 
                 //Add the reward block as the last transaction
-                _Transactions.Add("Reward " + _MinerName + " " + reward.ToString() + "BTC");
+                _Transactions.Add(_MinerName + " Rewards " + "_MinerName + " + reward.ToString() + "BTC");
 
                 //Set up the values to send to FindHash
                 //Flatten the transactions
@@ -51,26 +51,50 @@ namespace BlockchainLibrary.ChainOperations
 
         private Block FindHash(string Transactions, Block PreviousBlock)
         {
-            int nonce = 0;
+            int Nonce = 0;
             bool hashFound = false;
+            byte[] BlockHash = new byte[16];
 
-            
-            while ((hashFound != true) && (nonce != int.MaxValue))
+
+            while ((hashFound != true) && (Nonce != int.MaxValue))
             {
-                //This should proably be stringbuilder, but it's for simplification
-                Transactions = Transactions + nonce.ToString();
+                //This should proably be stringbuilder, but we're going for simplification
                 //generate the block
-                byte[] BlockHash = BlockchainLowLevel.HashBlock(PreviousBlock.Hash, Transactions);
+                BlockHash = BlockchainLowLevel.HashBlock(PreviousBlock.Hash, Transactions, Nonce);
+                if (TestForZeros(BlockHash) == true)
+                {
+                    return new Block(BlockHash, PreviousBlock.Hash, Transactions, Nonce);
+                }
+                
 
                 //Always increment the nonce;
-                nonce++;
+                Nonce++;
             }
 
-            return(new Block(""));
+            //Will have to come up with a more graceful way of returning a failure.
+            return null;
 
         }
 
-        //private void TestForZeros()
+        private bool TestForZeros(byte[] Hash)
+        {
+            byte Zero = 0;
+            byte[] ZeroByteArray = new byte[_Difficulty];
+            Buffer.BlockCopy(Hash, 0, ZeroByteArray, 0, _Difficulty);
+            
+
+            foreach (var item in ZeroByteArray)
+            {
+                if (item != Zero)
+                {
+                    return false;
+                }
+                ;
+            }
+            return true;
+            
+
+        }
 
         private void AddBlock(string DataToAdd)
         {

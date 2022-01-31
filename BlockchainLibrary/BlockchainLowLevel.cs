@@ -36,6 +36,14 @@ namespace BlockchainLibrary.ChainOperations
             return NewBlockHash;
         }
 
+        public static byte[] HashBlock(byte[] Hash, string BlockData, int Nonce)
+        {
+            string HashString = BitConverter.ToString(Hash);
+            string NonceString = Nonce.ToString();
+            byte[] NewBlockHash = MD5.HashData(Encoding.ASCII.GetBytes(HashString + NonceString +BlockData));
+            return NewBlockHash;
+        }
+
         public static bool VerifyBlock(Block BlockToVerify, Block NextBlock)
         {
             
