@@ -45,14 +45,18 @@ namespace BlockchainLowLevelUnitTests
             LinkedListNode<Block> FoundBlockNode = new LinkedListNode<Block>(FoundBlock);
 
             //Construct a tampered block
-            Block TamperedBlock = new Block(FoundBlock, "Tampered Block");
+            Block TamperedBlock = new Block(FoundBlock.Hash,FoundBlockNode.Value.PreviousHash, "Tampered Block");
             BE.Blockchain.AddBefore(BE.Blockchain.Find(FoundBlock), TamperedBlock);
 
             //Delete the true block
             BE.Blockchain.Remove(BE.Blockchain.FindLast(FoundBlock));
 
+            ///Find the next node after the tampered Block
+            Block FindTamperedBlock = BE.FindBlock(TamperedBlock.Hash);
+            LinkedListNode<Block> FindNodeAfterTamperedBlock= new LinkedListNode<Block>(FoundBlock);
+
             //Verify the tampered block
-            bool BlockIsAuthentic = BE.VerifyBlock(TamperedBlock);
+            bool BlockIsAuthentic = BE.VerifyBlock(TamperedBlock, FindNodeAfterTamperedBlock.Value);
             Assert.IsFalse(BlockIsAuthentic);
 
         }
@@ -70,7 +74,7 @@ namespace BlockchainLowLevelUnitTests
             Block FoundBlock = BE.FindBlock(SecondBlock.Hash);
 
             //Verify the second block
-            bool BlockIsAuthentic = BE.VerifyBlock(FoundBlock);
+            bool BlockIsAuthentic = BE.VerifyBlock(FoundBlock,BE.Blockchain.Last.Value);
             Assert.IsTrue(BlockIsAuthentic);
         }
 
@@ -117,14 +121,14 @@ namespace BlockchainLowLevelUnitTests
             LinkedListNode<Block> FoundBlockNode = new LinkedListNode<Block>(FoundBlock);
 
             //Construct a tampered block
-            Block TamperedBlock = new Block(FoundBlock, "Tampered Block");
+            Block TamperedBlock = new Block(FoundBlock.Hash, FoundBlockNode.Value.PreviousHash, "Tampered Block");
             BE.Blockchain.AddBefore(BE.Blockchain.Find(FoundBlock), TamperedBlock);
 
             //Delete the true block
             BE.Blockchain.Remove(BE.Blockchain.FindLast(FoundBlock));
 
             Block ReturnBlock = BE.VerifyBlocks(BE.Blockchain.First.Value);
-           // Assert.AreEqual(ReturnBlock, TamperedBlock);
+            Assert.AreEqual(ReturnBlock, TamperedBlock);
 
         }
 

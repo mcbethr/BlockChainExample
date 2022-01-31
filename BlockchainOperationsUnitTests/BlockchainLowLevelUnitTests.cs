@@ -20,7 +20,7 @@ namespace BlockchainLowLevelUnitTests
         public void CreateSecondBlockTest()
         {
             Block GenesisBlock = new Block("This is a test");
-            Block NewBlock = new Block(GenesisBlock, "Second Test");
+            Block NewBlock = new Block(GenesisBlock.Hash,GenesisBlock.PreviousHash, "Second Test");
             //Get the data for the second Block
             Assert.AreEqual(NewBlock.Data, "Second Test");
         }

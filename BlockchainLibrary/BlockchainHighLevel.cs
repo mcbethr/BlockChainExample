@@ -20,7 +20,8 @@ namespace BlockchainLibrary.ChainOperations
 
         public void AddBlock(string DataToAdd)
         {
-            Block NewBlock = new Block(_BlockChain.Last(), DataToAdd);
+            byte[] NewBlockHash = BlockchainLowLevel.HashBlock(_BlockChain.Last.Value.Hash, DataToAdd);
+            Block NewBlock = new Block(NewBlockHash, _BlockChain.Last.Value.Hash, DataToAdd);
             _BlockChain.AddLast(NewBlock);
         }
 
@@ -65,15 +66,11 @@ namespace BlockchainLibrary.ChainOperations
             return null;
         }
 
-        //TODO : Account for checking the last item in the linked list.
-        public bool VerifyBlock(Block BlockToVerify)
+        //TODO : Figure out what to do if it's the last block
+        public bool VerifyBlock(Block BlockToVerify, Block NextBlock)
         {
 
-            //Find the next block in the chain
-            //This will fail if it's the last block
-            LinkedListNode<Block> NextBlockNode = _BlockChain.Find(BlockToVerify).Next;
-
-            return BlockchainLowLevel.VerifyBlock(BlockToVerify, NextBlockNode.Value);            
+            return BlockchainLowLevel.VerifyBlock(BlockToVerify, NextBlock);            
         }
 
         /// <summary>
@@ -100,7 +97,7 @@ namespace BlockchainLibrary.ChainOperations
 
             ///If the node is verified, then move to the next node
             ///else, return the bad block. Yes we're using recursion
-            if (VerifyBlock(NodeToCheck.Value) == true)
+            if (VerifyBlock(NodeToCheck.Value,NodeToCheck.Next.Value) == true)
             {
                 VerifyBlocks(NodeToCheck.Next.Value);
             }

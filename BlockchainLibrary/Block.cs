@@ -32,19 +32,13 @@ namespace BlockchainLibrary
             _PreviousHash = BitConverter.GetBytes(0);
         }
 
-        public Block(Block PreviousBlockFromList, string Data)
+        public Block(byte[] Hash, byte[] PreviousHash, string Data, int Nonce = 0)
         {
 
-            GenerateNewBlock(PreviousBlockFromList.Hash, Data);
-
-        }
-
-        public void GenerateNewBlock(byte[] PreviousBlockHash, string Data)
-        {
-            _PreviousHash = PreviousBlockHash;
-            _Hash = BlockchainLowLevel.HashBlock(PreviousBlockHash, Data);
+            _Hash = Hash;
+            _PreviousHash = PreviousHash;
             _Data = Data;
-            _nonce = 0;
+            _nonce = Nonce;
         }
 
     }

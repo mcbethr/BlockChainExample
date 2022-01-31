@@ -16,6 +16,7 @@ namespace BlockchainLibrary.ChainOperations
         const int reward = 6; ///<-- Change this to increase reward
 
 
+
         public LinkedList<Block> Blockchain { get {return _BlockChain;} } 
 
         public AdvancedBlockchainHighLevel(string MinerName, int Difficulty)
@@ -32,18 +33,49 @@ namespace BlockchainLibrary.ChainOperations
             _Transactions.Add(Transaction);
             if (_Transactions.Count == 4)
                 {
-                //Add the reward block
+
+                //Add the reward block as the last transaction
                 _Transactions.Add("Reward " + _MinerName + " " + reward.ToString() + "BTC");
-                //TODO Finish this
+
+                //Set up the values to send to FindHash
+                //Flatten the transactions
+                string PreHashedTransactions = string.Join(Environment.NewLine,_Transactions);
+                Block PreviousBlock = _BlockChain.Last.Value;
+
+                _BlockChain.AddLast(FindHash(PreHashedTransactions,PreviousBlock));
+
                 }
 
                 
         }
 
+        private Block FindHash(string Transactions, Block PreviousBlock)
+        {
+            int nonce = 0;
+            bool hashFound = false;
+
+            
+            while ((hashFound != true) && (nonce != int.MaxValue))
+            {
+                //This should proably be stringbuilder, but it's for simplification
+                Transactions = Transactions + nonce.ToString();
+                //generate the block
+                byte[] BlockHash = BlockchainLowLevel.HashBlock(PreviousBlock.Hash, Transactions);
+
+                //Always increment the nonce;
+                nonce++;
+            }
+
+            return(new Block(""));
+
+        }
+
+        //private void TestForZeros()
+
         private void AddBlock(string DataToAdd)
         {
-            Block NewBlock = new Block(_BlockChain.Last(), DataToAdd);
-            _BlockChain.AddLast(NewBlock);
+            //Block NewBlock = new Block(_BlockChain.Last(), DataToAdd);
+            //_BlockChain.AddLast(NewBlock);
         }
 
         /// <summary>
