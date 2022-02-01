@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6TUiDtgdrAFP8EFUcaNap/6Obi5NyK8u+NkMV6XBILpqesGDAa+iD5b4zsPFdIneGqOdGGjRiCzTIDXAzbfrIg==",
+  "dgSpecHash": "pLy9N2g2TsPYGYCoeNyskpeQNiPmD4Q3OLT8EHx6jIyrB+/BT0FCTWwFq2u+tdDWiR4bxWp0bsCwZlu1+B9nUw==",
   "success": true,
   "projectFilePath": "C:\\Code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj",
   "expectedPackageFiles": [

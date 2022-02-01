@@ -60,7 +60,7 @@ namespace BlockchainLibrary.ChainOperations
                 //This should proably be stringbuilder, but it's for simplification
                 Transactions = Transactions + nonce.ToString();
                 //generate the block
-                byte[] BlockHash = BlockchainLowLevel.HashBlock(PreviousBlock.Hash, Transactions);
+                byte[] BlockHash = BlockchainLowLevel.HashBlock(PreviousBlock.BlockHash, Transactions);
 
                 //Always increment the nonce;
                 nonce++;
@@ -110,7 +110,7 @@ namespace BlockchainLibrary.ChainOperations
             foreach (var item in Blockchain)
             {
 
-                if(item.Hash.SequenceEqual(Hash))
+                if(item.BlockHash.SequenceEqual(Hash))
                 { 
                     return item;
                 }

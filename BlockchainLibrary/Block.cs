@@ -6,16 +6,16 @@ namespace BlockchainLibrary
     public class Block
     {
 
-        private byte[] _Hash;
-        private byte[] _PreviousHash;
+        private byte[] _BlockHash;
+        private byte[] _PreviousBlockHash;
         private string _Data;
         private int _nonce;
 
-        public byte[] Hash { get { return _Hash; } }
-        public string HashR { get { return BitConverter.ToString(Hash); } }
+        public byte[] BlockHash { get { return _BlockHash; } }
+        public string HashR { get { return BitConverter.ToString(_BlockHash); } }
 
-        public byte[] PreviousHash { get { return _PreviousHash; } }
-        public string PreviousHashR { get { return BitConverter.ToString(PreviousHash); } }
+        public byte[] PreviousBlockHash { get { return _PreviousBlockHash; } }
+        public string PreviousHashR { get { return BitConverter.ToString(_PreviousBlockHash); } }
 
         public string Data { get { return _Data; } }
 
@@ -28,15 +28,15 @@ namespace BlockchainLibrary
         public Block(string Data) 
         {
             _Data = Data;
-            _Hash = BlockchainLowLevel.CreateGenesisBlock(Data);
-            _PreviousHash = BitConverter.GetBytes(0);
+            _BlockHash = BlockchainLowLevel.CreateGenesisBlock(Data);
+            _PreviousBlockHash = BitConverter.GetBytes(0);
         }
 
-        public Block(byte[] Hash, byte[] PreviousHash, string Data, int Nonce = 0)
+        public Block(byte[] BlockHash, byte[] PreviousBlockHash, string Data, int Nonce = 0)
         {
 
-            _Hash = Hash;
-            _PreviousHash = PreviousHash;
+            _BlockHash = BlockHash;
+            _PreviousBlockHash = PreviousBlockHash;
             _Data = Data;
             _nonce = Nonce;
         }

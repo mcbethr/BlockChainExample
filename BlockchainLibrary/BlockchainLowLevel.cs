@@ -39,11 +39,11 @@ namespace BlockchainLibrary.ChainOperations
         public static bool VerifyBlock(Block BlockToVerify, Block NextBlock)
         {
             
-            byte[] BlockToVerifyHash = BlockToVerify.Hash;
+            byte[] BlockToVerifyHash = BlockToVerify.BlockHash;
             
             byte[] CalculatedHashOfNextBlock = HashBlock(BlockToVerifyHash, NextBlock.Data);
 
-            if (CalculatedHashOfNextBlock.SequenceEqual(NextBlock.Hash))
+            if (CalculatedHashOfNextBlock.SequenceEqual(NextBlock.BlockHash))
                 return true;
             else
                 return false;
