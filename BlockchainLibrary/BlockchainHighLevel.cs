@@ -66,7 +66,6 @@ namespace BlockchainLibrary.ChainOperations
             return null;
         }
 
-        //TODO : Figure out what to do if it's the last block
         public bool VerifyBlock(Block BlockToVerify, Block NextBlock)
         {
 

@@ -11,7 +11,7 @@ namespace BlockchainLibrary.ChainOperations
         LinkedList<Block> _BlockChain;
         List<string> _Transactions;
         string _MinerName;
-        int _Difficulty;
+        static int _Difficulty;
         const int tranactionLimit = 5; //<-- Change this to increase transaction limit
         const int reward = 6; ///<-- Change this to increase reward
 
@@ -19,7 +19,7 @@ namespace BlockchainLibrary.ChainOperations
 
         public LinkedList<Block> Blockchain { get {return _BlockChain;} } 
 
-        public AdvancedBlockchainHighLevel(string MinerName, int Difficulty)
+        public AdvancedBlockchainHighLevel(string MinerName, int Difficulty = 1)
         {
             _BlockChain = new LinkedList<Block>();
             _Transactions = new List<string>();
@@ -35,7 +35,7 @@ namespace BlockchainLibrary.ChainOperations
                 {
 
                 //Add the reward block as the last transaction
-                _Transactions.Add("Reward " + _MinerName + " " + reward.ToString() + "BTC");
+                _Transactions.Add(_MinerName + " Rewards " + "_MinerName + " + reward.ToString() + "BTC");
 
                 //Set up the values to send to FindHash
                 //Flatten the transactions
@@ -43,7 +43,7 @@ namespace BlockchainLibrary.ChainOperations
                 Block PreviousBlock = _BlockChain.Last.Value;
 
                 _BlockChain.AddLast(FindHash(PreHashedTransactions,PreviousBlock));
-
+                _Transactions = new List<string>(); //Reset the transaction
                 }
 
                 
@@ -51,26 +51,45 @@ namespace BlockchainLibrary.ChainOperations
 
         private Block FindHash(string Transactions, Block PreviousBlock)
         {
-            int nonce = 0;
+            int Nonce = 0;
             bool hashFound = false;
+            byte[] BlockHash = new byte[16];
 
-            
-            while ((hashFound != true) && (nonce != int.MaxValue))
+
+            while ((hashFound != true) && (Nonce != int.MaxValue))
             {
-                //This should proably be stringbuilder, but it's for simplification
-                Transactions = Transactions + nonce.ToString();
+                //This should proably be stringbuilder, but we're going for simplification
                 //generate the block
                 byte[] BlockHash = BlockchainLowLevel.HashBlock(PreviousBlock.BlockHash, Transactions);
 
                 //Always increment the nonce;
-                nonce++;
+                Nonce++;
             }
 
-            return(new Block(""));
+            //Will have to come up with a more graceful way of returning a failure.
+            return null;
 
         }
 
-        //private void TestForZeros()
+        private bool TestForZeros(byte[] Hash)
+        {
+            byte Zero = 0;
+            byte[] ZeroByteArray = new byte[_Difficulty];
+            Buffer.BlockCopy(Hash, 0, ZeroByteArray, 0, _Difficulty);
+            
+
+            foreach (var item in ZeroByteArray)
+            {
+                if (item != Zero)
+                {
+                    return false;
+                }
+                ;
+            }
+            return true;
+            
+
+        }
 
         private void AddBlock(string DataToAdd)
         {
@@ -119,16 +138,49 @@ namespace BlockchainLibrary.ChainOperations
             return null;
         }
 
-        //TODO : Account for checking the last item in the linked list.
-        public bool VerifyBlock(Block BlockToVerify)
+     
+        /// <summary>
+        /// This is different than the basic blockchain code
+        /// Here we are verifying that the Previous block hash
+        /// the nonce and the data all match what is expected
+        /// </summary>
+        /// <param name="BlockToVerify"></param>
+        /// <returns></returns>
+        
+        
+        public bool VerifyBlock(Block BlockToVerify, Block PreviousBlock)
         {
 
-            //Find the next block in the chain
-            //This will fail if it's the last block
-            LinkedListNode<Block> NextBlockNode = _BlockChain.Find(BlockToVerify).Next;
+                //Do a special accounting for the Genesis Block
+                if (PreviousBlock == null)
+                {
+                    Block GenesisBlock = new Block("GenesisBlock");
+                    if (GenesisBlock.Hash.SequenceEqual(BlockToVerify.Hash) == true)
+                    {
+                    return true;
+                    }
+                }
+                
 
-            return BlockchainLowLevel.VerifyBlock(BlockToVerify, NextBlockNode.Value);            
+                byte[] PreviousHash = PreviousBlock.Hash;
+                byte[] CurrentHash = BlockToVerify.Hash;
+                string Transactions = BlockToVerify.Data;
+                int Nonce = BlockToVerify.Nonce;
+
+                byte[] CalculatedHash = BlockchainLowLevel.HashBlock(PreviousHash, Transactions, Nonce);
+                if (CalculatedHash.SequenceEqual(CurrentHash) == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            
+                      
         }
+       
 
         /// <summary>
         /// Verifies all blocks from a start point.
@@ -138,33 +190,49 @@ namespace BlockchainLibrary.ChainOperations
         /// but going for simplicity here.
         /// </summary>
         /// <returns></returns>
+        
         public Block VerifyBlocks(Block StartBlock)
         {
-            Block TamperedBlock = null;
 
-            LinkedListNode<Block> StartNode = new LinkedListNode<Block>(StartBlock);
+            Block PreviousBlock = null;
 
-            LinkedListNode<Block> NodeToCheck = _BlockChain.Find(StartNode.Value);
+            LinkedListNode<Block> StartNode = _BlockChain.Find(StartBlock);
 
             //if nothing exists, we're at the end of the block.
-            if (NodeToCheck.Next == null)
+            if (StartNode.Next == null)
             {
                 return null;
             }
 
-            ///If the node is verified, then move to the next node
-            ///else, return the bad block. Yes we're using recursion
-            if (VerifyBlock(NodeToCheck.Value) == true)
+            ///If the Previous Value of the start node is
+            ///null, then we are at the beginning of 
+            ///the blockchain and should make the "previous"
+            ///block the Genesis block
+            if (StartNode.Previous == null)
             {
-                VerifyBlocks(NodeToCheck.Next.Value);
+                PreviousBlock = null;
             }
             else
             {
-                return NodeToCheck.Next.Value;
+                PreviousBlock = StartNode.Previous.Value;
             }
 
-            return TamperedBlock;
+            ///If the node is verified, then move to the next node
+            ///else, return the bad block. Yes we're using recursion
+            if (VerifyBlock(StartNode.Value, PreviousBlock) == true)
+            {
+                VerifyBlocks(StartNode.Next.Value);
+            }
+            else
+            {
+                return StartNode.Next.Value;
+            }
+
+            //If we reached here, The entire blockchain is validated.
+            return null;
+
         }
+        
 
     }
 }

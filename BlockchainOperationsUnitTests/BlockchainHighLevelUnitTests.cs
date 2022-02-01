@@ -91,6 +91,19 @@ namespace BlockchainLowLevelUnitTests
         
         }
 
+        [TestMethod]
+        public void VerifyLastNode()
+        {
+            BlockchainHighLevel BE = new BlockchainHighLevel();
+            BE.AddBlock("SecondTest");
+            BE.AddBlock("ThirdTest");
+
+            bool Verified = BE.VerifyBlock(BE.Blockchain.Last.Value,null);
+            Assert.IsTrue(Verified);
+
+
+        }
+
 
         [TestMethod]
         public void VerifyEntireBlockChainFromSecondBlockTest()

@@ -16,7 +16,6 @@ C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.p
 C:\Code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.genruntimeconfig.cache
 C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\BlockchainLibrary.dll
 C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\BlockchainLibrary.pdb
-C:\code\BlockChainExample\BlockChainExample\obj\Debug\net5.0\BlockChainExample.csproj.CopyComplete
 C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\images\CirclebackJack.bmp
 C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\images\PoshRyan.bmp
 C:\Code\BlockChainExample\BlockChainExample\bin\Debug\net5.0\images\Rayanne.bmp

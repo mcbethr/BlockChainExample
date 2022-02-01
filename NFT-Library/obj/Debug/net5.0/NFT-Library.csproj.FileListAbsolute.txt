@@ -15,7 +15,6 @@ C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.GeneratedMSBu
 C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.AssemblyInfoInputs.cache
 C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.AssemblyInfo.cs
 C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.csproj.CoreCompileInputs.cache
-C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.csproj.CopyComplete
 C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.dll
 C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\ref\NFT-Library.dll
 C:\Code\BlockChainExample\NFT-Library\obj\Debug\net5.0\NFT-Library.pdb
