@@ -53,14 +53,20 @@ namespace BlockchainLibrary.ChainOperations
         {
             int Nonce = 0;
             bool hashFound = false;
-            byte[] BlockHash = new byte[16];
+            byte[] CurrentBlockHash = new byte[16];
 
 
             while ((hashFound != true) && (Nonce != int.MaxValue))
             {
                 //This should proably be stringbuilder, but we're going for simplification
                 //generate the block
-                byte[] BlockHash = BlockchainLowLevel.HashBlock(PreviousBlock.BlockHash, Transactions);
+                CurrentBlockHash = BlockchainLowLevel.HashBlock(PreviousBlock.BlockHash, Transactions, Nonce);
+
+                if (TestForZeros(CurrentBlockHash) == true)
+                {
+                    Block FoundBlock = new Block(CurrentBlockHash, PreviousBlock.BlockHash, Transactions, Nonce);
+                    return FoundBlock;
+                }
 
                 //Always increment the nonce;
                 Nonce++;
@@ -155,15 +161,15 @@ namespace BlockchainLibrary.ChainOperations
                 if (PreviousBlock == null)
                 {
                     Block GenesisBlock = new Block("GenesisBlock");
-                    if (GenesisBlock.Hash.SequenceEqual(BlockToVerify.Hash) == true)
+                    if (GenesisBlock.BlockHash.SequenceEqual(BlockToVerify.BlockHash) == true)
                     {
                     return true;
                     }
                 }
                 
 
-                byte[] PreviousHash = PreviousBlock.Hash;
-                byte[] CurrentHash = BlockToVerify.Hash;
+                byte[] PreviousHash = PreviousBlock.BlockHash;
+                byte[] CurrentHash = BlockToVerify.BlockHash;
                 string Transactions = BlockToVerify.Data;
                 int Nonce = BlockToVerify.Nonce;
 

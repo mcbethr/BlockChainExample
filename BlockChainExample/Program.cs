@@ -40,7 +40,7 @@ namespace BlockChainExample
             //Create a blockchain and add some transactions
             BlockchainHighLevel BE = new BlockchainHighLevel();
             BE.AddBlock("Ryan Pays PoshRyan 10 BTC for lunch");
-            BE.AddBlock("Seymore pays 20 BTC to Moo2You for chocolate milk.");
+            BE.AddBlock("Seymore pays 20 BTC to Moo2You for Milkshake.");
 
             int itemNumber = 0;
             foreach (var item in BE.Blockchain)

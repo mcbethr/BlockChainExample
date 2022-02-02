@@ -7,3 +7,10 @@
 *.cache
 *.pdb
 *.testlog
+*.pdb
+*.dll
+BlockChainExample/bin/Debug/net5.0/BlockchainLibrary.dll
+*.dll
+*.cache
+*.props
+*.testlog

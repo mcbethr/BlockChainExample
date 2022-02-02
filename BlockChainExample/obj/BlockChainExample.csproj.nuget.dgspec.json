@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\code\\BlockChainExample\\BlockChainExample\\BlockChainExample.csproj": {}
+    "C:\\Code\\BlockChainExample\\BlockChainExample\\BlockChainExample.csproj": {}
   },
   "projects": {
-    "C:\\code\\BlockChainExample\\BlockChainExample\\BlockChainExample.csproj": {
+    "C:\\Code\\BlockChainExample\\BlockChainExample\\BlockChainExample.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\BlockChainExample\\BlockChainExample\\BlockChainExample.csproj",
+        "projectUniqueName": "C:\\Code\\BlockChainExample\\BlockChainExample\\BlockChainExample.csproj",
         "projectName": "BlockChainExample",
-        "projectPath": "C:\\code\\BlockChainExample\\BlockChainExample\\BlockChainExample.csproj",
-        "packagesPath": "C:\\Users\\ryanm\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\BlockChainExample\\BlockChainExample\\obj\\",
+        "projectPath": "C:\\Code\\BlockChainExample\\BlockChainExample\\BlockChainExample.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Code\\BlockChainExample\\BlockChainExample\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ryanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
-                "projectPath": "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj"
+              "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
+                "projectPath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj"
               },
-              "C:\\code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj": {
-                "projectPath": "C:\\code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj"
+              "C:\\Code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj": {
+                "projectPath": "C:\\Code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj"
               }
             }
           }
@@ -56,12 +56,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.13, 5.0.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -71,17 +65,17 @@
         }
       }
     },
-    "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
+    "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
+        "projectUniqueName": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
         "projectName": "BlockchainLibrary",
-        "projectPath": "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
-        "packagesPath": "C:\\Users\\ryanm\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\BlockChainExample\\BlockchainLibrary\\obj\\",
+        "projectPath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ryanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -125,17 +119,17 @@
         }
       }
     },
-    "C:\\code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj": {
+    "C:\\Code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj",
+        "projectUniqueName": "C:\\Code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj",
         "projectName": "NFT-Library",
-        "projectPath": "C:\\code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj",
-        "packagesPath": "C:\\Users\\ryanm\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\BlockChainExample\\NFT-Library\\obj\\",
+        "projectPath": "C:\\Code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Code\\BlockChainExample\\NFT-Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ryanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -149,8 +143,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
-                "projectPath": "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj"
+              "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
+                "projectPath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj"
               }
             }
           }

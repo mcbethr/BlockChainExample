@@ -46,7 +46,12 @@ namespace BlockchainLibrary.ChainOperations
 
         public static bool VerifyBlock(Block BlockToVerify, Block NextBlock)
         {
-            
+
+            //if the NextBlock is Null, we are at the end of the list and can't verify
+            //so just return true
+            if (NextBlock == null)
+                return true;
+
             byte[] BlockToVerifyHash = BlockToVerify.BlockHash;
             
             byte[] CalculatedHashOfNextBlock = HashBlock(BlockToVerifyHash, NextBlock.Data);

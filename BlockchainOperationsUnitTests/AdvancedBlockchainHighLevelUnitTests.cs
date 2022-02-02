@@ -22,7 +22,7 @@ namespace BlockchainOperationsUnitTests
             BE.AddTransaction("Seymore Pays 5 BTC for VPN subscription");
             ///The transaction should trigger automatically after the 4th transaction
             BE.AddTransaction("POSH Ryan pays 35BTC for a new shirt");
-            Assert.AreEqual(0, BE.Blockchain.Last.Value.Hash[0]);
+            Assert.AreEqual(0, BE.Blockchain.Last.Value.BlockHash[0]);
 
         }
 
@@ -36,7 +36,7 @@ namespace BlockchainOperationsUnitTests
             BE.AddTransaction("Seymore Pays 5 BTC for VPN subscription");
             ///The transaction should trigger automatically after the 4th transaction
             BE.AddTransaction("POSH Ryan pays 35BTC for a new shirt");
-            Assert.AreEqual(0, BE.Blockchain.Last.Value.Hash[1]);
+            Assert.AreEqual(0, BE.Blockchain.Last.Value.BlockHash[1]);
 
         }
 
@@ -117,7 +117,7 @@ namespace BlockchainOperationsUnitTests
 
 
             //Tamper with the Second Block and create a replacement block
-            Block BlockToTamper = new Block(SecondBlockNode.Value.Hash, SecondBlockNode.Previous.Value.Hash, "Tampered");
+            Block BlockToTamper = new Block(SecondBlockNode.Value.BlockHash, SecondBlockNode.Previous.Value.BlockHash, "Tampered");
             LinkedListNode<Block> TamperedBlockNode = new LinkedListNode<Block>(BlockToTamper);
 
             BE.Blockchain.AddBefore(BE.Blockchain.Find(SecondBlockNode.Value), TamperedBlockNode);

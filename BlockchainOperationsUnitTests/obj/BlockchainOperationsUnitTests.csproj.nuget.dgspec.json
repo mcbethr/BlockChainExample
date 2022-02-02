@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj": {}
+    "C:\\Code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj": {}
   },
   "projects": {
-    "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
+    "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
+        "projectUniqueName": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
         "projectName": "BlockchainLibrary",
-        "projectPath": "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
-        "packagesPath": "C:\\Users\\ryanm\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\BlockChainExample\\BlockchainLibrary\\obj\\",
+        "projectPath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ryanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,17 +58,17 @@
         }
       }
     },
-    "C:\\code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj": {
+    "C:\\Code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj",
+        "projectUniqueName": "C:\\Code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj",
         "projectName": "BlockchainOperationsUnitTests",
-        "projectPath": "C:\\code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj",
-        "packagesPath": "C:\\Users\\ryanm\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\BlockChainExample\\BlockchainOperationsUnitTests\\obj\\",
+        "projectPath": "C:\\Code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Code\\BlockChainExample\\BlockchainOperationsUnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ryanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,8 +82,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
-                "projectPath": "C:\\code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj"
+              "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj": {
+                "projectPath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj"
               }
             }
           }
