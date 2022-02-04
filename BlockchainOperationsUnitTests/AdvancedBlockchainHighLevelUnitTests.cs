@@ -14,7 +14,8 @@ namespace BlockchainOperationsUnitTests
     {
 
         [TestMethod]
-        public void TestFindABlockWithADifficultyOf1Test(){
+        public void TestFindABlockWithADifficultyOf1Test() //0
+        {
             int Difficulty = 1;
             AdvancedBlockchainHighLevel BE = new AdvancedBlockchainHighLevel("RyanMiner", Difficulty);
             BE.AddTransaction("Ryan Pays Seymore 10BTC for Lunch");
@@ -27,7 +28,7 @@ namespace BlockchainOperationsUnitTests
         }
 
         [TestMethod]
-        public void TestFindABlockWithADifficultyOf2Test()
+        public void TestFindABlockWithADifficultyOf2Test() //00
         {
             int Difficulty = 2;
             AdvancedBlockchainHighLevel BE = new AdvancedBlockchainHighLevel("RyanMiner", Difficulty);
@@ -41,9 +42,9 @@ namespace BlockchainOperationsUnitTests
         }
 
         //Only uncomment this if you are willing to wait about 30 seconds for an answer
-        /*
+        
         [TestMethod]
-        public void TestFindABlockWithADifficultyOf3Test()
+        public void TestFindABlockWithADifficultyOf3Test() //000
         {
             int Difficulty = 3;
             AdvancedBlockchainHighLevel BE = new AdvancedBlockchainHighLevel("RyanMiner", Difficulty);
@@ -52,10 +53,11 @@ namespace BlockchainOperationsUnitTests
             BE.AddTransaction("Seymore Pays 5 BTC for VPN subscription");
             ///The transaction should trigger automatically after the 4th transaction
             BE.AddTransaction("POSH Ryan pays 35BTC for a new shirt");
-            Assert.AreEqual(0, BE.Blockchain.Last.Value.Hash[2]);
+            Assert.AreEqual(0, BE.Blockchain.Last.Value.BlockHash[2]);
+           
 
         }
-        */
+        
 
 
         [TestMethod]
@@ -128,6 +130,7 @@ namespace BlockchainOperationsUnitTests
 
             Block FoundBlock = BE.VerifyBlocks(BE.Blockchain.First.Value);
             Assert.IsNull(FoundBlock);
+
 
         }
 

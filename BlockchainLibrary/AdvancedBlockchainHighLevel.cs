@@ -34,7 +34,7 @@ namespace BlockchainLibrary.ChainOperations
             if (_Transactions.Count == 4)
                 {
 
-                //Add the reward block as the last transaction
+                //Add the reward transaction as the last transaction
                 _Transactions.Add(_MinerName + " Rewards " + "_MinerName + " + reward.ToString() + "BTC");
 
                 //Set up the values to send to FindHash

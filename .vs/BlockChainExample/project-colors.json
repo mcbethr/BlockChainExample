@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b98ea7a9-e606-410e-a66d-a37e97ff222f": {
+      "ProjectGuid": "b98ea7a9-e606-410e-a66d-a37e97ff222f",
+      "DisplayName": "BlockchainOperationsUnitTests",
+      "ColorIndex": 0
+    },
+    "d1906620-8309-4f2f-985f-27bf2be49c52": {
+      "ProjectGuid": "d1906620-8309-4f2f-985f-27bf2be49c52",
+      "DisplayName": "BlockchainLibrary",
+      "ColorIndex": 1
+    },
+    "7b3e7773-58e5-499d-88ab-536fa47575f3": {
+      "ProjectGuid": "7b3e7773-58e5-499d-88ab-536fa47575f3",
+      "DisplayName": "BlockChainExample",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
