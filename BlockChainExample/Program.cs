@@ -47,9 +47,9 @@ namespace BlockChainExample
             {
 
                 Console.WriteLine("---------------------------");
-                Console.WriteLine("Hash: " + item.HashR);
+                Console.WriteLine("Block Hash: " + item.HashR);
                 Console.WriteLine("Previous Hash: " + item.PreviousHashR);
-                Console.WriteLine("Data: " + item.Data);
+                Console.WriteLine("Transaction Data: " + item.Data);
                 Console.WriteLine("---------------------------");
                 Console.WriteLine("");
                 itemNumber++;

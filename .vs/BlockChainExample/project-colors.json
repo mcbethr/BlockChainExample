@@ -15,7 +15,17 @@
       "ProjectGuid": "7b3e7773-58e5-499d-88ab-536fa47575f3",
       "DisplayName": "BlockChainExample",
       "ColorIndex": 2
+    },
+    "0111d951-c38f-4e19-b9aa-97fbc3dff2a3": {
+      "ProjectGuid": "0111d951-c38f-4e19-b9aa-97fbc3dff2a3",
+      "DisplayName": "NFT-Library",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }

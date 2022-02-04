@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6vyXWXmOFHo5uwX9zuZJ6y5qUeabEZyooE5EawHZsRgFyeaEojlJ7FMk3q+94rqCyFtZB7mD9vyt2vmax6u6CQ==",
+  "dgSpecHash": "gZNACN8LwVMZXqo1q+v+0QRrcgR4QZCaUKUw5Q/W2CuYqfKF/ykUewo4Oi9yh2zS91Ri9m0KsxK5FTj4VkppNQ==",
   "success": true,
   "projectFilePath": "C:\\Code\\BlockChainExample\\NFT-Library\\NFT-Library.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\admin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\admin\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

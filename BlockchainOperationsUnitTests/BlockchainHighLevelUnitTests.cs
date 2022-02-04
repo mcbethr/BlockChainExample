@@ -45,7 +45,7 @@ namespace BlockchainLowLevelUnitTests
             LinkedListNode<Block> FoundBlockNode = new LinkedListNode<Block>(FoundBlock);
 
             //Construct a tampered block
-            Block TamperedBlock = new Block(FoundBlock.BlockHash,FoundBlockNode.Value.PreviousBlockHash, "Tampered Block");
+            Block TamperedBlock = new Block(FoundBlock.BlockHash, FoundBlockNode.Value.PreviousBlockHash, "Tampered Block");
             BE.Blockchain.AddBefore(BE.Blockchain.Find(FoundBlock), TamperedBlock);
 
             //Delete the true block
@@ -53,10 +53,10 @@ namespace BlockchainLowLevelUnitTests
 
             ///Find the next node after the tampered Block
             Block FindTamperedBlock = BE.FindBlock(TamperedBlock.BlockHash);
-            LinkedListNode<Block> FindNodeAfterTamperedBlock= new LinkedListNode<Block>(FoundBlock);
-
+            LinkedListNode<Block> FindNodeAfterTamperedBlock = new LinkedListNode<Block>(FoundBlock);
+            
             //Verify the tampered block
-            bool BlockIsAuthentic = BE.VerifyBlock(TamperedBlock, FindNodeAfterTamperedBlock.Value);
+            bool BlockIsAuthentic = BE.VerifyBlock(TamperedBlock, BE.Blockchain.First.Value, FindNodeAfterTamperedBlock.Value);
             Assert.IsFalse(BlockIsAuthentic);
 
         }
@@ -74,9 +74,11 @@ namespace BlockchainLowLevelUnitTests
             Block FoundBlock = BE.FindBlock(SecondBlock.BlockHash);
 
             //Verify the second block
-            bool BlockIsAuthentic = BE.VerifyBlock(FoundBlock,BE.Blockchain.Last.Value);
+            bool BlockIsAuthentic = BE.VerifyBlock(FoundBlock, BE.Blockchain.First.Value,BE.Blockchain.Last.Value);
             Assert.IsTrue(BlockIsAuthentic);
         }
+
+        /*
 
         [TestMethod]
         public void VerifyEntireBlockChainTest()
@@ -87,24 +89,27 @@ namespace BlockchainLowLevelUnitTests
 
             Block ReturnBlock = BE.VerifyBlocks(BE.Blockchain.First.Value);
             Assert.IsNull(ReturnBlock);
-        
-        
+
+
         }
+        */
 
         [TestMethod]
         public void VerifyLastNode()
         {
             BlockchainHighLevel BE = new BlockchainHighLevel();
             BE.AddBlock("SecondTest");
+            
             BE.AddBlock("ThirdTest");
 
-            bool Verified = BE.VerifyBlock(BE.Blockchain.Last.Value,null);
+            bool Verified = BE.VerifyBlock(BE.Blockchain.Last.Value, BE.Blockchain.Last.Previous.Value, null);
             Assert.IsTrue(Verified);
 
 
         }
 
 
+        /*
         [TestMethod]
         public void VerifyEntireBlockChainFromSecondBlockTest()
         {
@@ -118,15 +123,17 @@ namespace BlockchainLowLevelUnitTests
             Assert.IsNull(ReturnBlock);
 
         }
-
+        */
 
         [TestMethod]
         public void TamperSecondBlockAndFindDuringVerificationOfBlockChainTest()
         {
             BlockchainHighLevel BE = new BlockchainHighLevel();
+
             BE.AddBlock("SecondTest");
             //Get the data for the second Block
             Block SecondBlock = BE.Blockchain.Last.Value;
+
             BE.AddBlock("ThirdTest");
 
             //Get the second block to tamper with it
@@ -140,11 +147,22 @@ namespace BlockchainLowLevelUnitTests
             //Delete the true block
             BE.Blockchain.Remove(BE.Blockchain.FindLast(FoundBlock));
 
-            Block ReturnBlock = BE.VerifyBlocks(BE.Blockchain.First.Value);
-            Assert.AreEqual(ReturnBlock, TamperedBlock);
+            bool TamperedBlockResult = BE.VerifyBlock(TamperedBlock,BE.Blockchain.First.Value,BE.Blockchain.Last.Value);
+            Assert.IsFalse(TamperedBlockResult);
 
         }
+        [TestMethod]
+        public void CreateSimpleBlockHashTest()
+        {
+
+            byte[] PerviousBlockHash = BitConverter.GetBytes(0);
+            string TransactionData = "MyTransactionData";
+            int nonce = 0;
+
+            BlockchainHighLevel BE = new BlockchainHighLevel();
+            BE.CreateASimpleBlockHash(PerviousBlockHash, TransactionData, nonce);
 
 
+        }
     }
 }

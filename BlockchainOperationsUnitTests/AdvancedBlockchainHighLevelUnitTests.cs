@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BlockchainLibrary.ChainOperations;
 using BlockchainLibrary;
+using BlockchainLibrary.ChainOperations;
 
 namespace BlockchainOperationsUnitTests
 {
@@ -41,7 +41,6 @@ namespace BlockchainOperationsUnitTests
 
         }
 
-        //Only uncomment this if you are willing to wait about 30 seconds for an answer
         
         [TestMethod]
         public void TestFindABlockWithADifficultyOf3Test() //000
@@ -70,7 +69,7 @@ namespace BlockchainOperationsUnitTests
             BE.AddTransaction("Seymore Pays 5 BTC for VPN subscription");
             ///The transaction should trigger automatically after the 4th transaction
             BE.AddTransaction("POSH Ryan pays 35BTC for a new shirt");
-
+            
             bool IsValid = BE.VerifyBlock(BE.Blockchain.Last.Value,BE.Blockchain.First.Value);
 
         }
@@ -130,7 +129,6 @@ namespace BlockchainOperationsUnitTests
 
             Block FoundBlock = BE.VerifyBlocks(BE.Blockchain.First.Value);
             Assert.IsNull(FoundBlock);
-
 
         }
 

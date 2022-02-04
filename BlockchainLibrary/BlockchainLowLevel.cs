@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace BlockchainLibrary.ChainOperations
 {
-    internal class BlockchainLowLevel
+    static internal class BlockchainLowLevel
     {
         const string GenesisBlockText = "GenesisBlock";
 
@@ -22,29 +22,56 @@ namespace BlockchainLibrary.ChainOperations
 
         public static byte[] HashBlock(byte[] PreviousBlockHash, string BlockData, int Nonce)
         {
-            string HashString = BitConverter.ToString(PreviousBlockHash);
+            string PreviousHashString = BitConverter.ToString(PreviousBlockHash);
             string NonceString = Nonce.ToString();
-            byte[] NewBlockHash = MD5.HashData(Encoding.ASCII.GetBytes(HashString + NonceString +BlockData));
+            string CompleteBlock = PreviousHashString + NonceString + BlockData;
+
+            byte[] NewBlockHash = SHA1.HashData(Encoding.ASCII.GetBytes(CompleteBlock));
             return NewBlockHash;
         }
 
-        public static bool VerifyBlock(Block BlockToVerify, Block NextBlock)
+        public static bool VerifyBlock(Block BlockUnderTest, Block PreviousBlock, Block NextBlock)
         {
 
-            //if the NextBlock is Null, we are at the end of the list and can't verify
-            //so just return true
-            if (NextBlock == null)
-                return true;
+            byte[] CalculatedHashOfBlockUnderTest = null;
 
-            byte[] BlockToVerifyHash = BlockToVerify.BlockHash;
+            //if the Previous is Null, we are at the genesis block, 
+            //so create a new one and comapre
+            if (PreviousBlock == null)
+            {
+                Block NewBlock = CreateGenesisBlock();
+                if (NewBlock.BlockHash.SequenceEqual(BlockUnderTest.BlockHash))
+                    return true;
+                else
+                    return false;
+            }
             
-            byte[] CalculatedHashOfNextBlock = HashBlock(BlockToVerifyHash, NextBlock.Data,0);
+            // if the nextblock is null, we need to make sure the previous block matches the block to verify
+            if (NextBlock == null) 
+            {
 
-            if (CalculatedHashOfNextBlock.SequenceEqual(NextBlock.BlockHash))
+                CalculatedHashOfBlockUnderTest = HashBlock(PreviousBlock.BlockHash, BlockUnderTest.Data, BlockUnderTest.Nonce);
+
+                if (CalculatedHashOfBlockUnderTest.SequenceEqual(BlockUnderTest.BlockHash))
+                    return true;
+                else
+                    return false;
+
+            }
+
+            //If we're in the middle of the block.
+
+            //Hash the block under test
+            CalculatedHashOfBlockUnderTest = HashBlock(PreviousBlock.BlockHash, BlockUnderTest.Data, BlockUnderTest.Nonce);
+
+            //Use the result to hash the next block
+            byte[] CalculatedNextBlockHash = HashBlock(CalculatedHashOfBlockUnderTest, NextBlock.Data, NextBlock.Nonce);
+
+            //if the calculated value is equal to the stored value, the block has not been tampered with.
+            if (CalculatedNextBlockHash.SequenceEqual(NextBlock.BlockHash))
                 return true;
             else
                 return false;
-
         }
 
     }
