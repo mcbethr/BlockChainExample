@@ -20,7 +20,7 @@ namespace BlockchainLibrary.ChainOperations
 
         public void AddBlock(string DataToAdd)
         {
-            byte[] NewBlockHash = BlockchainLowLevel.HashBlock(_BlockChain.Last.Value.BlockHash, DataToAdd);
+            byte[] NewBlockHash = BlockchainLowLevel.HashBlock(_BlockChain.Last.Value.BlockHash, DataToAdd,0);
             Block NewBlock = new Block(NewBlockHash, _BlockChain.Last.Value.BlockHash, DataToAdd);
             _BlockChain.AddLast(NewBlock);
         }

@@ -160,7 +160,7 @@ namespace BlockchainLibrary.ChainOperations
                 //Do a special accounting for the Genesis Block
                 if (PreviousBlock == null)
                 {
-                    Block GenesisBlock = new Block("GenesisBlock");
+                    Block GenesisBlock = BlockchainLowLevel.CreateGenesisBlock();
                     if (GenesisBlock.BlockHash.SequenceEqual(BlockToVerify.BlockHash) == true)
                     {
                     return true;

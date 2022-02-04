@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pLy9N2g2TsPYGYCoeNyskpeQNiPmD4Q3OLT8EHx6jIyrB+/BT0FCTWwFq2u+tdDWiR4bxWp0bsCwZlu1+B9nUw==",
+  "dgSpecHash": "Ttf2uaPODkYkJZ/hBQ/n8wLKpp+/0kaLrxg5kPzZ2UCqIpdkiHc+GTGWwQ7oSR9YFqUH1prQ/if04d1VXQEGSw==",
   "success": true,
   "projectFilePath": "C:\\Code\\BlockChainExample\\BlockchainOperationsUnitTests\\BlockchainOperationsUnitTests.csproj",
   "expectedPackageFiles": [
@@ -91,7 +91,10 @@
     "C:\\Users\\admin\\.nuget\\packages\\system.threading.tasks.extensions\\4.3.0\\system.threading.tasks.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\admin\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\admin\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

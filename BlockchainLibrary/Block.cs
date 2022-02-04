@@ -24,14 +24,6 @@ namespace BlockchainLibrary
         /// </summary>
         public int Nonce { get { return _nonce; } }
 
-        //Create Genesis Block
-        public Block(string Data) 
-        {
-            _Data = Data;
-            _BlockHash = BlockchainLowLevel.CreateGenesisBlock(Data);
-            _PreviousBlockHash = BitConverter.GetBytes(0);
-        }
-
         public Block(byte[] BlockHash, byte[] PreviousBlockHash, string Data, int Nonce = 0)
         {
 

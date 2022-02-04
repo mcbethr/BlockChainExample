@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KFgzwXrMpglMxJ+u3zLvO064JAWDMN/6TSmExfi5Yw0GMAqvc49g6d6nVUW2sbzleQGp8rUeyiZ45X10dSpJBw==",
+  "dgSpecHash": "mdLLvi1mMcvKgeNW1zvbErCvhtFrHE33uQ20dj8IB8dpqdmM3xzMajmyBDNeCyI8gh/dM0K9yp/QmsHZA+i54Q==",
   "success": true,
   "projectFilePath": "C:\\Code\\BlockChainExample\\BlockchainLibrary\\BlockchainLibrary.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

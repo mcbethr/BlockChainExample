@@ -13,32 +13,16 @@ namespace BlockchainLibrary.ChainOperations
 
         public static Block CreateGenesisBlock()
         {
-            Block GenesisBlock = new Block(GenesisBlockText);
+            byte[] PreviousBlockHash = BitConverter.GetBytes(0);
+            byte[] Blockhash = HashBlock(BitConverter.GetBytes(0), GenesisBlockText, 0);
+            Block GenesisBlock = new Block(Blockhash, PreviousBlockHash, GenesisBlockText, 0);
 
             return GenesisBlock;
         }
 
-        public static byte[] CreateGenesisBlock(string GenesisBlockData)
+        public static byte[] HashBlock(byte[] PreviousBlockHash, string BlockData, int Nonce)
         {
-            return HashGenesisBlock( GenesisBlockData);
-
-        }
-        private static byte[] HashGenesisBlock(string GenesisBlockData)
-        {
-            byte[] GenesisHash = MD5.HashData(Encoding.ASCII.GetBytes(GenesisBlockData));
-            return GenesisHash;
-        }
-
-        public static byte[] HashBlock(byte[] Hash, string BlockData)
-        {
-            string HashString = BitConverter.ToString(Hash);
-            byte[] NewBlockHash = MD5.HashData(Encoding.ASCII.GetBytes(HashString + BlockData));
-            return NewBlockHash;
-        }
-
-        public static byte[] HashBlock(byte[] Hash, string BlockData, int Nonce)
-        {
-            string HashString = BitConverter.ToString(Hash);
+            string HashString = BitConverter.ToString(PreviousBlockHash);
             string NonceString = Nonce.ToString();
             byte[] NewBlockHash = MD5.HashData(Encoding.ASCII.GetBytes(HashString + NonceString +BlockData));
             return NewBlockHash;
@@ -54,7 +38,7 @@ namespace BlockchainLibrary.ChainOperations
 
             byte[] BlockToVerifyHash = BlockToVerify.BlockHash;
             
-            byte[] CalculatedHashOfNextBlock = HashBlock(BlockToVerifyHash, NextBlock.Data);
+            byte[] CalculatedHashOfNextBlock = HashBlock(BlockToVerifyHash, NextBlock.Data,0);
 
             if (CalculatedHashOfNextBlock.SequenceEqual(NextBlock.BlockHash))
                 return true;
