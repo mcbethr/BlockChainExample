@@ -9,7 +9,7 @@ namespace NFT_Library
     public static class NFTHighLevel
     {
 
-        public static string CreateNFT(string[] args)
+        public static string MintNFT(string[] args)
         {
             //Find the file
             string Filename = args[3];
