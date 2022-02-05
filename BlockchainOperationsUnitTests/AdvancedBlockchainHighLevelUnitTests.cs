@@ -41,7 +41,9 @@ namespace BlockchainOperationsUnitTests
 
         }
 
-        
+        /// <summary>
+        /// IF you go over 3 zeros, be prepared to wait.
+        /// </summary>
         [TestMethod]
         public void TestFindABlockWithADifficultyOf3Test() //000
         {
@@ -54,7 +56,6 @@ namespace BlockchainOperationsUnitTests
             BE.AddTransaction("POSH Ryan pays 35BTC for a new shirt");
             Assert.AreEqual(0, BE.Blockchain.Last.Value.BlockHash[2]);
            
-
         }
         
 

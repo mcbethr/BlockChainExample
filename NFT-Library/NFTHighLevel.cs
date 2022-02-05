@@ -1,6 +1,7 @@
 ﻿using BlockchainLibrary;
 using System;
 using System.IO;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace NFT_Library
@@ -16,8 +17,10 @@ namespace NFT_Library
             //Grab the file into a byte array
             byte[] byteArray = File.ReadAllBytes(Filename);
 
+            byte[] NFTHash = SHA1.HashData(byteArray);
+
             //Create the NFT
-            NFT MyNFT = new NFT(args[0], args[1], args[2], byteArray);
+            NFT MyNFT = new NFT(args[0], args[1], args[2], NFTHash);
 
             return MyNFT.TransactionString;
         }
