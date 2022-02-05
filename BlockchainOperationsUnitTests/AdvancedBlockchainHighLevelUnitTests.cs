@@ -70,12 +70,12 @@ namespace BlockchainOperationsUnitTests
             ///The transaction should trigger automatically after the 4th transaction
             BE.AddTransaction("POSH Ryan pays 35BTC for a new shirt");
             
-            bool IsValid = BE.VerifyBlock(BE.Blockchain.Last.Value,BE.Blockchain.First.Value);
+            bool IsValid = BE.VerifyBlock(BE.Blockchain.Last.Value,BE.Blockchain.First.Value,null);
 
         }
 
         [TestMethod]
-        public void VerifyEntireBlockChainPassTest()
+        public void VerifyLastBlockPass()
         {
             int Difficulty = 1;
             AdvancedBlockchainHighLevel BE = new AdvancedBlockchainHighLevel("RyanMiner", Difficulty);
@@ -87,17 +87,17 @@ namespace BlockchainOperationsUnitTests
 
             BE.AddTransaction("Rayanne Pays Seymore 10BTC for Lunch");
             BE.AddTransaction("Rayanne Pays Starbucks 8 BTC for Coffee");
-            BE.AddTransaction("Seymore Pays 5 BTC for Luncg");
+            BE.AddTransaction("Seymore Pays 5 BTC for Lunch");
             ///The transaction should trigger automatically after the 4th transaction
             BE.AddTransaction("POSH Ryan pays 40BTC for a new pants");
 
-            Block FoundBlock = BE.VerifyBlocks(BE.Blockchain.First.Value);
-            Assert.IsNull(FoundBlock);
+            bool BlockVerified = BE.VerifyBlock(BE.Blockchain.Last.Value,BE.Blockchain.Last.Previous.Value,null);
+            Assert.IsTrue(BlockVerified);
 
         }
 
         [TestMethod]
-        public void VerifyEntireBlockChainFailTest()
+        public void VerifySecondBlockTamperTest()
         {        
 
             int Difficulty = 1;
@@ -127,8 +127,8 @@ namespace BlockchainOperationsUnitTests
             BE.Blockchain.Remove(BE.Blockchain.FindLast(SecondBlockNode.Value));
 
 
-            Block FoundBlock = BE.VerifyBlocks(BE.Blockchain.First.Value);
-            Assert.IsNull(FoundBlock);
+            bool VerifiedBlock = BE.VerifyBlock(TamperedBlockNode.Value, TamperedBlockNode.Previous.Value, TamperedBlockNode.Next.Value);
+            Assert.IsFalse(VerifiedBlock);
 
         }
 

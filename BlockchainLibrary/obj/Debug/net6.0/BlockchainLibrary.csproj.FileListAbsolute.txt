@@ -2,7 +2,6 @@ C:\Code\BlockChainExample\BlockchainLibrary\bin\Debug\net6.0\BlockchainLibrary.d
 C:\Code\BlockChainExample\BlockchainLibrary\bin\Debug\net6.0\BlockchainLibrary.dll
 C:\Code\BlockChainExample\BlockchainLibrary\bin\Debug\net6.0\ref\BlockchainLibrary.dll
 C:\Code\BlockChainExample\BlockchainLibrary\bin\Debug\net6.0\BlockchainLibrary.pdb
-C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net6.0\BlockchainLibrary.csproj.AssemblyReference.cache
 C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net6.0\BlockchainLibrary.GeneratedMSBuildEditorConfig.editorconfig
 C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net6.0\BlockchainLibrary.AssemblyInfoInputs.cache
 C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net6.0\BlockchainLibrary.AssemblyInfo.cs

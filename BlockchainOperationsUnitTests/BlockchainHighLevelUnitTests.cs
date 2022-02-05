@@ -78,21 +78,6 @@ namespace BlockchainLowLevelUnitTests
             Assert.IsTrue(BlockIsAuthentic);
         }
 
-        /*
-
-        [TestMethod]
-        public void VerifyEntireBlockChainTest()
-        {
-            BlockchainHighLevel BE = new BlockchainHighLevel();
-            BE.AddBlock("SecondTest");
-            BE.AddBlock("ThirdTest");
-
-            Block ReturnBlock = BE.VerifyBlocks(BE.Blockchain.First.Value);
-            Assert.IsNull(ReturnBlock);
-
-
-        }
-        */
 
         [TestMethod]
         public void VerifyLastNode()
@@ -109,21 +94,6 @@ namespace BlockchainLowLevelUnitTests
         }
 
 
-        /*
-        [TestMethod]
-        public void VerifyEntireBlockChainFromSecondBlockTest()
-        {
-            BlockchainHighLevel BE = new BlockchainHighLevel();
-            BE.AddBlock("SecondTest");
-            //Get the data for the second Block
-            Block SecondBlock = BE.Blockchain.Last.Value;
-            BE.AddBlock("ThirdTest");
-
-            Block ReturnBlock = BE.VerifyBlocks(SecondBlock);
-            Assert.IsNull(ReturnBlock);
-
-        }
-        */
 
         [TestMethod]
         public void TamperSecondBlockAndFindDuringVerificationOfBlockChainTest()

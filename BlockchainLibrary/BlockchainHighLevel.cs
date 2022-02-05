@@ -66,11 +66,13 @@ namespace BlockchainLibrary.ChainOperations
             return null;
         }
 
-        public void Hello()
-        {
-
-        }
-
+        /// <summary>
+        /// Verifys a single block
+        /// </summary>
+        /// <param name="BlockUnderTest"></param>
+        /// <param name="PreviousBlock"></param>
+        /// <param name="NextBlock"></param>
+        /// <returns></returns>
         public bool VerifyBlock(Block BlockUnderTest, Block PreviousBlock, Block NextBlock)
         {
 
