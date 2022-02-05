@@ -167,6 +167,10 @@ namespace BlockchainLibrary.ChainOperations
                 {
                     return true;
                 }
+                else 
+                { 
+                    return false;
+                }
             }
 
             //Do special Accounting for the last block
