@@ -64,8 +64,15 @@ namespace BlockChainExample
             {
                 BlockchainHighLevel BE = new BlockchainHighLevel();
 
-                string NFT =  NFTHighLevel.MintNFT(args);
+                string From = args[0];
+                string Action = args[1];
+                string To = args[2];
+                string Filename = args[3];
+
+
+                string NFT =  NFTHighLevel.MintNFT(From,Action,To,Filename);
                 BE.AddBlock(NFT);
+
 
                 int itemNumber = 0;
                 foreach (var item in BE.Blockchain)

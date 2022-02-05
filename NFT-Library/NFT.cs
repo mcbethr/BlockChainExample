@@ -16,22 +16,16 @@ namespace NFT_Library
         public NFT(string From, string Action, string To, byte[] NFTImage)
         {
 
-            AssembleTransactionString( From,  Action,  To, NFTImage);
-        }
-
-        private void AssembleTransactionString(string From, string Action, string To, byte[] NFTImage)
-        {
-
             _TransactionString = From +
-                                Environment.NewLine +
-                                Action +
-                                Environment.NewLine +
-                                To +
-                                Environment.NewLine
-                                +
-                                BitConverter.ToString(NFTImage);
-
+                              Environment.NewLine +
+                              Action +
+                              Environment.NewLine +
+                              To +
+                              Environment.NewLine
+                              +
+                              BitConverter.ToString(NFTImage);
         }
+
         
         
     }

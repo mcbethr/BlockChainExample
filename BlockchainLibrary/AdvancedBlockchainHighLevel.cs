@@ -31,7 +31,7 @@ namespace BlockchainLibrary.ChainOperations
         public void AddTransaction(string Transaction)
         {
             _Transactions.Add(Transaction);
-            if (_Transactions.Count == 4)
+            if (_Transactions.Count == (tranactionLimit-1))
                 {
 
                 //Add the reward transaction as the last transaction
@@ -215,7 +215,7 @@ namespace BlockchainLibrary.ChainOperations
 
         }
 
-
+        
 
     }
 }

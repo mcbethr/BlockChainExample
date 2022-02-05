@@ -9,4 +9,3 @@ C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net6.0\BlockchainLibrary.c
 C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net6.0\BlockchainLibrary.dll
 C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net6.0\ref\BlockchainLibrary.dll
 C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net6.0\BlockchainLibrary.pdb
-C:\Code\BlockChainExample\BlockchainLibrary\obj\Debug\net6.0\BlockchainLibrary.csproj.AssemblyReference.cache

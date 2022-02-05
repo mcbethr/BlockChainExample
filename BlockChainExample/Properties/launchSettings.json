@@ -1,8 +1,7 @@
 {
   "profiles": {
     "BlockChainExample": {
-      "commandName": "Project",
-      "commandLineArgs": "Ryan Sells Seymore .\\images\\CirclebackJack.bmp"
+      "commandName": "Project"
     }
   }
 }
