@@ -50,6 +50,7 @@ namespace BlockChainExample
             {
 
                 Console.WriteLine("---------------------------");
+                Console.WriteLine("Block Height: " + itemNumber);
                 Console.WriteLine("Block Hash: " + item.HashR);
                 Console.WriteLine("Previous Hash: " + item.PreviousHashR);
                 Console.WriteLine("Transaction Data: " + item.Data);
