@@ -133,6 +133,20 @@ namespace BlockchainOperationsUnitTests
 
         }
 
+        [TestMethod]
+        public void TestHashForVideo()
+        {
+            int Difficulty = 1;
+            AdvancedBlockchainHighLevel BE = new AdvancedBlockchainHighLevel("RyanMiner", Difficulty);
+            BE.AddTransaction("Ryan Pays Seymore 10BTC for Lunch");
+            BE.AddTransaction("Rayanne Pays Starbucks 8 BTC for Coffee");
+            BE.AddTransaction("Seymore Pays 5 BTC for VPN subscription");
+            ///The transaction should trigger automatically after the 4th transaction
+            BE.AddTransaction("POSH Ryan pays 35BTC for a new shirt");
+
+            bool IsValid = BE.VerifyBlock(BE.Blockchain.Last.Value, BE.Blockchain.First.Value, null);
+
+        }
 
     }
 }
