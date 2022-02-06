@@ -14,7 +14,7 @@ namespace BlockchainLibrary.ChainOperations
         public static Block CreateGenesisBlock()
         {
             byte[] PreviousBlockHash = BitConverter.GetBytes(0);
-            byte[] Blockhash = HashBlock(BitConverter.GetBytes(0), GenesisBlockText, 0);
+            byte[] Blockhash = HashBlock(PreviousBlockHash, GenesisBlockText, 0);
             Block GenesisBlock = new Block(Blockhash, PreviousBlockHash, GenesisBlockText, 0);
 
             return GenesisBlock;

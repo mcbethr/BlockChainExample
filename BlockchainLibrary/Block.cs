@@ -1,6 +1,7 @@
 ﻿using BlockchainLibrary.ChainOperations;
 using System;
 using System.Security.Cryptography;
+
 namespace BlockchainLibrary
 {
     public class Block
