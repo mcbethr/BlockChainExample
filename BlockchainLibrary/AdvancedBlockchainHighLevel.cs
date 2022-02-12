@@ -12,7 +12,7 @@ namespace BlockchainLibrary.ChainOperations
         List<string> _Transactions;
         string _MinerName;
         static int _Difficulty;
-        const int tranactionLimit = 5; //<-- Change this to increase transaction limit
+        const int transactionLimit = 5; //<-- Change this to increase transaction limit
         const int reward = 6; ///<-- Change this to increase reward
 
 
@@ -31,25 +31,25 @@ namespace BlockchainLibrary.ChainOperations
         public void AddTransaction(string Transaction)
         {
             _Transactions.Add(Transaction);
-            if (_Transactions.Count == (tranactionLimit-1))
+            if (_Transactions.Count == (transactionLimit - 1))
                 {
 
                 //Add the reward transaction as the last transaction
-                _Transactions.Add(_MinerName + " Rewards " + "_MinerName + " + reward.ToString() + "BTC");
+                _Transactions.Add(_MinerName + " Rewards " + _MinerName + " " + reward.ToString() + "BTC");
 
                 //Set up the values to send to FindHash
                 //Flatten the transactions
                 string PreHashedTransactions = string.Join(Environment.NewLine,_Transactions);
                 Block PreviousBlock = _BlockChain.Last.Value;
 
-                _BlockChain.AddLast(FindHash(PreHashedTransactions,PreviousBlock));
+                _BlockChain.AddLast(FindHashAndReturnBlock(PreHashedTransactions,PreviousBlock));
                 _Transactions = new List<string>(); //Reset the transaction
                 }
 
                 
         }
 
-        private Block FindHash(string Transactions, Block PreviousBlock)
+        private Block FindHashAndReturnBlock(string Transactions, Block PreviousBlock)
         {
             int Nonce = 0;
             bool hashFound = false;
@@ -58,8 +58,7 @@ namespace BlockchainLibrary.ChainOperations
 
             while ((hashFound != true) && (Nonce != int.MaxValue))
             {
-                //This should proably be stringbuilder, but we're going for simplification
-                //generate the block
+            
                 CurrentBlockHash = BlockchainLowLevel.HashBlock(PreviousBlock.BlockHash, Transactions, Nonce);
 
                 if (TestForZeros(CurrentBlockHash) == true)
