@@ -43,7 +43,7 @@ namespace BlockchainLibrary.ChainOperations
                 Block PreviousBlock = _BlockChain.Last.Value;
 
                 _BlockChain.AddLast(FindHashAndReturnBlock(PreHashedTransactions,PreviousBlock));
-                _Transactions = new List<string>(); //Reset the transaction
+                _Transactions.Clear(); //Reset the transaction
                 }
 
                 
