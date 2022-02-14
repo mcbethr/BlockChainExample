@@ -53,7 +53,7 @@ namespace BlockchainLibrary.ChainOperations
         {
             int Nonce = 0;
             bool hashFound = false;
-            byte[] CurrentBlockHash = new byte[16];
+            byte[] CurrentBlockHash = new byte[20];
 
 
             while ((hashFound != true) && (Nonce != int.MaxValue))
